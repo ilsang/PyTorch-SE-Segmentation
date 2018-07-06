@@ -29,8 +29,10 @@ class Dashboard:
                                     ylabel=var_name
                                     ))
         else:
-            self.vis.updateTrace(X=np.array([x, x]), Y=np.array([y, y]), env=self.env,
-                                win=self.plots[var_name], name=split_name)
+            self.vis.line(X=np.array([x, x]), Y=np.array([y, y]), env=self.env,
+                                win=self.plots[var_name], name=split_name,
+                                update='append'
+                         )
             
     def image(self, image, title):
         if image.is_cuda:
